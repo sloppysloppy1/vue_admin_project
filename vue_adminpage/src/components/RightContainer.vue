@@ -5,41 +5,35 @@
       <h1> Управление пользователями </h1>
       <br>
       <div class="table-name">
-        <h3> spisok polzovateley </h3>
-        <input name="search" placeholder="ищем"></input>
+        <h3> Список пользователей </h3>
+        <input name="search" placeholder="Поиск.."></input>
       </div>
       <table name="table">
         <tr>
-          <TabCell
+          <TabCellName
             v-for="elem in table_names"
             v-bind:elem="elem"
+            v-bind:key="elem.id"
           />
         </tr>
-        <tr>
-          <TabCell
-            v-for="(elem, index) in table_names"
-            v-bind:elem="elem[index]"
-          />
-        </tr>
-        <tr>
-          <td>ID</td>
-          <td>имя</td>
-          <td>Iмыло</td>
-          <td>статус</td>
-          <td>дейсвтия</td>
-        </tr>
+        <TabRow
+          v-for="elem in examples"
+          v-bind:elem="elem"
+          v-bind:key="elem.id"
+        />
       </table>
-      <button name="button"> добавить польза</button>
+      <button name="button" class="add-user-button">Добавить пользователя</button>
     </div>
 </div>
 </template>
 
 <script>
-import TabCell from "@/components/TabCell"
+import TabCellName from "@/components/TabCellName"
+import TabRow from "@/components/TabRow"
 export default {
-  props: ['headers', 'table_names'],
+  props: ['headers', 'table_names', 'examples'],
   components: {
-    TabCell
+    TabCellName, TabRow
   }
 }
 </script>
@@ -63,15 +57,15 @@ input {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
-  background: url("/assets/icons/search.svg") no-repeat left #101216;
+  background: url("../assets/icons/search.svg") no-repeat left #101216;
   background-position-x: left 10px;
   background-size: 1.5em;
   padding: 3px 40px ;
 }
 
-button {
+.add-user-button {
   text-align: center;
-  width: 300px;
+  width: 200px;
   height: 40px;
   border-radius: 20px;
   background: #3381ed;
@@ -97,5 +91,26 @@ tr:first-child > td {
 
 .content {
   margin: 35px 40px;
+}
+
+.table-name {
+  display: flex;
+}
+
+.table-name > h3 {
+  flex-grow: 1;
+}
+
+td {
+  padding: 9px;
+  border: 1px solid #2c2d31;
+}
+
+td:first-child {
+  border-left: 0px solid;
+}
+
+td:last-child {
+  border-right: 0px solid;
 }
 </style>

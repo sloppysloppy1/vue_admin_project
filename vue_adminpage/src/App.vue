@@ -8,6 +8,7 @@
       />
       <RightContainer
         v-bind:table_names="table_names"
+        v-bind:examples="examples"
       />
       </div>
     </div>
@@ -17,10 +18,11 @@
 <script>
 import LeftContainer from "@/components/LeftContainer"
 import RightContainer from "@/components/RightContainer"
+import vSelect from "vue-select"
 export default {
   name: 'App',
   components: {
-    LeftContainer, RightContainer
+    LeftContainer, RightContainer, vSelect
   },
 
   data() {
@@ -53,9 +55,9 @@ export default {
       ],
 
       examples: [
-        {id: 0, name: "Artur", email: "whoaskedgmail.com", status: "active"},
-        {id: 1, name: "Artur", email: "whoaskedgmail.com", status: "active"}
-      ],
+        {id: 0, name: "Artur", email: "whoasked@gmail.com", status: "active"},
+        {id: 1, name: "Artur", email: "whoasked@gmail.com", status: "not-active"}
+      ]
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <li tabindex="1">
+  <li tabindex="tabindex">
    {{elem.title}}
   </li>
 </template>
@@ -16,11 +16,11 @@ export default {
 </script>
 
 <style>
-  li {
-    list-style-type: none;
-  }
+li {
+  list-style-type: none;
+}
 
-  li:focus {
-    background-color: #23252a;
-  }
+li:focus {
+  background-color: #23252a;
+}
 </style>

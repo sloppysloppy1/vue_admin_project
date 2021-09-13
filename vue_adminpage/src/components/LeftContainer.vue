@@ -39,7 +39,6 @@ export default {
 </script>
 
 <style>
-
 h2 {
   font-size: 18px;
   line-height: 45px;
